@@ -1,0 +1,87 @@
+.cta23-container {
+  width: 100%;
+  padding: var(--dl-space-space-halfunit);
+  position: relative;
+}
+.cta23-max-width {
+  gap: 80px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  overflow: hidden;
+  max-width: var(--dl-size-size-maxwidth);
+  align-self: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.cta23-row {
+  width: 100%;
+  display: flex;
+  max-width: var(--dl-size-size-maxwidth);
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.cta23-content {
+  gap: var(--dl-space-space-oneandhalfunits);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.cta23-heading1 {
+  text-align: center;
+  font-family: "Carter One";
+}
+.cta23-container1 {
+  gap: var(--dl-space-space-unit);
+  flex: 1;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.cta23-row1 {
+  height: 103px;
+  display: flex;
+  flex-direction: row;
+}
+.cta23-container2 {
+  gap: var(--dl-space-space-unit);
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-self: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.cta23-button {
+  width: var(--dl-size-size-large);
+  height: var(--dl-size-size-small);
+  margin: var(--dl-space-space-halfunit);
+  background-color: var(--dl-color-primary-b1);
+}
+@media(max-width: 991px) {
+  .cta23-container1 {
+    width: auto;
+    align-self: center;
+    align-items: flex-start;
+  }
+  .cta23-row1 {
+    width: 100%;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .cta23-container2 {
+    gap: var(--dl-space-space-unit);
+    align-self: flex-end;
+    justify-content: center;
+  }
+}
+@media(max-width: 767px) {
+  .cta23-container2 {
+    gap: var(--dl-space-space-unit);
+  }
+}

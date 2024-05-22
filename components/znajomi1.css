@@ -1,0 +1,36 @@
+.znajomi1-container {
+  width: auto;
+  height: auto;
+  margin: var(--dl-space-space-twounits);
+  display: flex;
+  position: relative;
+}
+.znajomi1-button {
+  color: rgba(225, 240, 243, 0.52);
+  width: 359px;
+  height: auto;
+  padding: var(--dl-space-space-twounits);
+  font-size: 60px;
+  align-self: center;
+  box-shadow: 0px 0px 15px 10px #c182fd;
+  margin-top: var(--dl-space-space-twounits);
+  text-align: center;
+  transition: 0.3s;
+  font-family: "Carter One";
+  margin-left: var(--dl-space-space-twounits);
+  border-color: #56a6ff;
+  border-width: 0px;
+  margin-right: var(--dl-space-space-twounits);
+  border-radius: 50px;
+  margin-bottom: var(--dl-space-space-twounits);
+  background-color: #c59eff;
+}
+.znajomi1-button:hover {
+  color: rgba(242, 1, 255, 0.52);
+  width: 400px;
+  animation-name: pulse;
+  background-color: #f5daff;
+}
+.znajomi1-root-class-name {
+  align-self: center;
+}

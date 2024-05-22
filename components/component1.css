@@ -1,0 +1,17 @@
+.component1-container {
+  display: flex;
+  position: relative;
+}
+.component1-navlink {
+  color: rgb(255, 255, 255);
+  width: var(--dl-size-size-xxlarge);
+  height: var(--dl-size-size-medium);
+  font-size: 50px;
+  box-shadow: 5px 5px 10px 0px #292929;
+  margin-top: var(--dl-space-space-threeunits);
+  font-family: "Carter One";
+  border-width: 0px;
+  margin-bottom: var(--dl-space-space-threeunits);
+  text-decoration: none;
+  background-color: var(--dl-color-primary-p1);
+}
