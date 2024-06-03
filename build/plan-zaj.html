@@ -2,21 +2,44 @@
 <html lang="english">
   <head>
     <title>Plan-Zaj - exported project</title>
-    <!-- Dodaj Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js"></script>
-    <!-- Dodaj style karuzeli -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   </head>
+  <style>
+    .swiper {
+      width: 60%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
   <body>
-    <div class="swiper-container">
+    <div class="swiper" navigation="true" pagination="true">
       <div class="swiper-wrapper" id="carousel-images"></div>
       <div class="swiper-pagination"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
     </div>
+<script type="module">
+      // Import the functions needed from the SDKs
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+      import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";  
+      import { getStorage, ref, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+      import { Swiper } from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
 
-    <script>
       const firebaseConfig = {
         apiKey: "AIzaSyDqRvAFeKtRZQYCg1J_8AwM5kk61xlbWA0",
         authDomain: "my-kampus-6f73d.firebaseapp.com",
@@ -28,39 +51,26 @@
         measurementId: "G-1YQZ3T5ER0"
     };
 
-      firebase.initializeApp(firebaseConfig);
-      const storage = firebase.storage();
-      //const storageRef = storage.ref().child("my-kampus-6f73d.appspot.com");
-	const storageRef = storage.ref();
-      storageRef.listAll().then((result) => {
-        result.items.forEach((itemRef) => {
-          itemRef.getDownloadURL().then((url) => {
-            const img = document.createElement('img');
-            img.src = url;
-
-            document.getElementById('carousel-images').appendChild(img);
-          }).catch((error) => {
-            console.error('Error getting download URL:', error);
-          });
+    var swiper = new Swiper('.swiper', {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      }
+    });
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const auth = getAuth(app);
+      const storage = getStorage();
+      const storageRef = ref(storage, '/');
+      listAll(storageRef).then((response) => {
+        response.items.forEach((item) => {
+          getDownloadURL(item).then((url) => {
+          swiper.appendSlide('<div class="swiper-slide"><img src="' + url +'"></div>')
+        }).catch((error) => {
+          console.error('Error getting download URL:', error);
         });
-      }).catch((error) => {
-        console.error('Error listing files:', error);
-      });
-
-      const swiper = new Swiper('.swiper-container', {
-        loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
+        });
       });
     </script>
-
-    <!-- Dodaj skrypt do obsługi karuzeli -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   </body>
 </html>
