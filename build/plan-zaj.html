@@ -30,7 +30,8 @@
 
       firebase.initializeApp(firebaseConfig);
       const storage = firebase.storage();
-      const storageRef = storage.ref().child('gs://my-kampus-6f73d.appspot.com');
+      //const storageRef = storage.ref().child("my-kampus-6f73d.appspot.com");
+	const storageRef = storage.ref();
       storageRef.listAll().then((result) => {
         result.items.forEach((itemRef) => {
           itemRef.getDownloadURL().then((url) => {
