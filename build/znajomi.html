@@ -210,13 +210,6 @@
   </div>
 </div>
 
-<div id="login-container">
-  <input type="email" id="email" placeholder="Email" />
-  <input type="password" id="password" placeholder="Password" />
-  <button id="login-button">Login</button>
-  <button id="logout-button">Logout</button>
-</div>
-
 <script defer="" src="https://unpkg.com/@teleporthq/react-components/dist/animate-on-reveal.umd.js"></script>
 <script defer="" src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
 <script type="module">
@@ -250,7 +243,7 @@
       // authenticated user's friends list
       const friendsRef = ref(database, `users/${uid}/friends`);
 
-      // Adddin by index
+      // Addding by index
       document.getElementById('add-friend-btn').addEventListener('click', () => {
         const friendIndex = document.getElementById('friend-index').value;
         if (friendIndex) {
@@ -276,7 +269,7 @@
         }
       });
 
-      //changes friend list
+      //changes friends list
       onValue(friendsRef, (snapshot) => {
         const friendsList = document.getElementById('znajomi-list');
         friendsList.innerHTML = '';
@@ -293,28 +286,6 @@
     }
   });
 
-  // Login
-  document.getElementById('login-button').addEventListener('click', () => {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-              const user = userCredential.user;
-              console.log('Logged in as:', user.uid);
-            })
-            .catch((error) => {
-              console.error('Error logging in:', error);
-            });
-  });
-
-  // Logout
-  document.getElementById('logout-button').addEventListener('click', () => {
-    signOut(auth).then(() => {
-      console.log('User signed out');
-    }).catch((error) => {
-      console.error('Error signing out:', error);
-    });
-  });
 </script>
 </body>
 </html>
