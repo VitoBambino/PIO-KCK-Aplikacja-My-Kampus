@@ -215,7 +215,7 @@
 <script type="module">
   // Import Firebase modules
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-  import { getDatabase, ref, set, push, onValue, get, child } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+  import { getDatabase, ref, set, push, onValue, get, child, query, orderByChild, equalTo } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
   import { getAuth, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
 
 
@@ -245,39 +245,72 @@
 
       // Addding by index
       document.getElementById('add-friend-btn').addEventListener('click', () => {
-        const friendIndex = document.getElementById('friend-index').value;
+  const friendIndex = document.getElementById('friend-index').value;
 
-        // Check if friendIndex is not empty
-        if (friendIndex) {
-          // Create a reference to the specific student in the database
-          const studentRef = ref(database, `students/${friendIndex}`);
+alert('klik');
 
-          // Fetch the data at the specified reference
-          get(studentRef).then((snapshot) => {
-            // Check if the data exists
-            if (snapshot.exists()) {
-              // Retrieve the student's data
-              const studentData = snapshot.val();
 
-              // Create a new entry in the friends node
-              const newFriendRef = push(friendsRef);
-              set(newFriendRef, {
-                name: studentData.name,
-                lastname: studentData.lastname
-              }).then(() => {
-                // Clear the input field after successful addition
-                document.getElementById('friend-index').value = '';
-              }).catch((error) => {
-                console.error('Error adding friend: ', error);
-              });
-            } else {
-              console.log('No data available for this index');
+  if (friendIndex) {
+    const studentRef = ref(database, `students/${friendIndex}`);
+    
+    // Fetch the student data from the students node
+    get(studentRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        const studentData = snapshot.val();
+
+        alert('klik2');
+
+        // Query to check if a friend with the same name exists in the friends node
+        const friendsQuery = query(friendsRef, orderByChild('name'), equalTo(studentData.name));
+        alert('klikquert');
+        // Execute the query to check for duplicates
+        get(friendsQuery).then((friendsSnapshot) => {
+          let friendExists = false;
+
+          alert('klik3');
+
+          // Check each result to see if both name and lastname match
+          friendsSnapshot.forEach((childSnapshot) => {
+            const friend = childSnapshot.val();
+            if (friend.lastname === studentData.lastname) {
+              friendExists = true;
             }
-          }).catch((error) => {
-            console.error('Error fetching student data: ', error);
           });
-        }
-      });
+
+          if (friendExists) {
+            // Friend already exists, log a message
+            console.log('Friend already exists in the database.');
+            alert('Friend already exists')
+          } else {
+            // Add new friend if no duplicate is found
+            const newFriendRef = push(friendsRef);
+            set(newFriendRef, {
+              name: studentData.name,
+              lastname: studentData.lastname
+            }).then(() => {
+              // Clear the input field and log success message
+              document.getElementById('friend-index').value = '';
+              console.log('Friend added successfully.');
+            }).catch((error) => {
+              // Log error if adding friend fails
+              console.error('Error adding friend: ', error);
+            });
+          }
+        }).catch((error) => {
+          // Log error if query execution fails
+          console.error('Error checking friends data: ', error);
+        });
+
+      } else {
+        // Log message if no student data is found for the given index
+        console.log('No data available for this index');
+      }
+    }).catch((error) => {
+      // Log error if fetching student data fails
+      console.error('Error fetching student data: ', error);
+    });
+  }
+});
 
     //   const q = query(collection(firestore, "projektwww"), where("email", "==", email));
     // const querySnapshot = wait getDocs(q);
