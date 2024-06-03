@@ -246,16 +246,26 @@
       // Addding by index
       document.getElementById('add-friend-btn').addEventListener('click', () => {
         const friendIndex = document.getElementById('friend-index').value;
+
+        // Check if friendIndex is not empty
         if (friendIndex) {
+          // Create a reference to the specific student in the database
           const studentRef = ref(database, `students/${friendIndex}`);
+
+          // Fetch the data at the specified reference
           get(studentRef).then((snapshot) => {
+            // Check if the data exists
             if (snapshot.exists()) {
+              // Retrieve the student's data
               const studentData = snapshot.val();
+
+              // Create a new entry in the friends node
               const newFriendRef = push(friendsRef);
               set(newFriendRef, {
                 name: studentData.name,
                 lastname: studentData.lastname
               }).then(() => {
+                // Clear the input field after successful addition
                 document.getElementById('friend-index').value = '';
               }).catch((error) => {
                 console.error('Error adding friend: ', error);
@@ -268,6 +278,14 @@
           });
         }
       });
+
+    //   const q = query(collection(firestore, "projektwww"), where("email", "==", email));
+    // const querySnapshot = wait getDocs(q);
+    // if (!querySnapshot.empty) {
+    //     console.log("Email znajduje się już w bazie danych");
+    //     alert("Email znajduje się już w bazie danych");
+    //     return false;
+    // }
 
       //changes friends list
       onValue(friendsRef, (snapshot) => {
