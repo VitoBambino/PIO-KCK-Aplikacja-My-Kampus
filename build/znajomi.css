@@ -295,7 +295,7 @@
 
 .znajomi-ul {
   width: 847px;
-  height: 578px;
+  height: auto;
   align-self: center;
   margin-top: var(--dl-space-space-twounits);
   border-color: var(--dl-color-primary-f1);
