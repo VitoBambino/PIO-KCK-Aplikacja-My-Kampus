@@ -266,6 +266,7 @@
 
 .wydarzenia-container {
   width: 100%;
+  height: 1620px;
   display: flex;
   overflow: auto;
   min-height: 100vh;
