@@ -1,143 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Plan-Zaj - exported project</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <style>
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background: linear-gradient(to right, #fc00ff 0%, #00dbde 100%);
-        position: relative;
-      }
 
-      body::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to right, #fc00ff 0%, #00dbde 100%);
-        z-index: -1;
-      }
+<head>
+  <title>Plan-Zaj - exported project</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(to right, #fc00ff 0%, #00dbde 100%);
+      position: relative;
+    }
 
-      .swiper {
-        width: 65%;
-        height: auto;
-        position: center;
-      }
+    body::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #fc00ff 0%, #00dbde 100%);
+      z-index: -1;
+    }
 
-      .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+    .swiper {
+      width: 65%;
+      height: auto;
+      position: center;
+    }
 
-      .swiper-slide img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-      .swiper-button-prev,
-      .swiper-button-next {
-        color: #000;
-      }
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-      .back-container {
-        position: absolute;
-        top: 80px;
-        left: 80px;
-        z-index: 100;
-      }
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: #000;
+    }
 
-      .back-icon {
-        width: 80px;
-        height: 80px;
-        fill: #5ee6ff; /* kolor cofania */
-       //top: 11px;
-       //left: 69px;
-       //width: var(--dl-size-size-medium);
-       //height: auto;
-       //position: absolute;
-       //align-self: center;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="back-container">
-      <a href="strona-gwna.html" class="back-navlink button">
-        <svg viewBox="0 0 1024 1024" class="back-icon">
-          <path d="M490 512l364-256v512zM470 768l-364-256 364-256v512z"></path>
-        </svg>
-      </a>
-    </div>
+    .back-container {
+      position: absolute;
+      top: 80px;
+      left: 80px;
+      z-index: 100;
+    }
 
-    <div class="swiper" navigation="true" pagination="true">
-      <div class="swiper-wrapper" id="carousel-images"></div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
+    .back-icon {
+      width: 80px;
+      height: 80px;
+      fill: #5ee6ff;
+      /* kolor cofania */
+      //top: 11px;
+      //left: 69px;
+      //width: var(--dl-size-size-medium);
+      //height: auto;
+      //position: absolute;
+      //align-self: center;
+    }
+  </style>
+</head>
 
-    <script type="module">
-      // Import the functions needed from the SDKs
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
-      import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-      import { getStorage, ref, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
-      import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
+<body>
+  <div class="back-container">
+    <a href="strona-gwna.html" class="back-navlink button">
+      <svg viewBox="0 0 1024 1024" class="back-icon">
+        <path d="M490 512l364-256v512zM470 768l-364-256 364-256v512z"></path>
+      </svg>
+    </a>
+  </div>
 
-      const firebaseConfig = {
-        apiKey: "AIzaSyDqRvAFeKtRZQYCg1J_8AwM5kk61xlbWA0",
-        authDomain: "my-kampus-6f73d.firebaseapp.com",
-        databaseURL: "https://my-kampus-6f73d-default-rtdb.europe-west1.firebasedatabase.app",
-        projectId: "my-kampus-6f73d",
-        storageBucket: "my-kampus-6f73d.appspot.com",
-        messagingSenderId: "879223836191",
-        appId: "1:879223836191:web:468f621034b6d3c9c00f2a",
-        measurementId: "G-1YQZ3T5ER0"
-      };
+  <div class="swiper" navigation="true" pagination="true">
+    <div class="swiper-wrapper" id="carousel-images"></div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
 
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-      const auth = getAuth(app);
-      const storage = getStorage(app);
-      const storageRef = ref(storage, '/');
+  <script type="module">
+    // Import the functions needed from the SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getStorage, ref, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
 
-      // Initialize Swiper
-      const swiper = new Swiper('.swiper', {
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-      });
+    const firebaseConfig = {
+      apiKey: "AIzaSyDqRvAFeKtRZQYCg1J_8AwM5kk61xlbWA0",
+      authDomain: "my-kampus-6f73d.firebaseapp.com",
+      databaseURL: "https://my-kampus-6f73d-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "my-kampus-6f73d",
+      storageBucket: "my-kampus-6f73d.appspot.com",
+      messagingSenderId: "879223836191",
+      appId: "1:879223836191:web:468f621034b6d3c9c00f2a",
+      measurementId: "G-1YQZ3T5ER0"
+    };
 
-      // Load images from Firebase Storage and add to Swiper
-      listAll(storageRef).then((response) => {
-        response.items.forEach((item) => {
-          getDownloadURL(item).then((url) => {
-            swiper.appendSlide('<div class="swiper-slide"><img src="' + url + '"></div>');
-          }).catch((error) => {
-            console.error('Error getting download URL:', error);
-          });
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth(app);
+    const storage = getStorage(app);
+    const storageRef = ref(storage, '/');
+
+    // Initialize Swiper
+    const swiper = new Swiper('.swiper', {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+
+    // Load images from Firebase Storage and add to Swiper
+    listAll(storageRef).then((response) => {
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          swiper.appendSlide('<div class="swiper-slide"><img src="' + url + '"></div>');
+        }).catch((error) => {
+          console.error('Error getting download URL:', error);
         });
-      }).catch((error) => {
-        console.error('Error listing storage items:', error);
       });
-    </script>
-  </body>
+    }).catch((error) => {
+      console.error('Error listing storage items:', error);
+    });
+  </script>
+</body>
+
 </html>

@@ -2,6 +2,7 @@
   display: flex;
   position: relative;
 }
+
 .back-navlink {
   width: 239px;
   height: 121px;
@@ -13,6 +14,7 @@
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0);
 }
+
 .back-icon {
   top: 11px;
   fill: #5ee6ff;
@@ -22,21 +24,25 @@
   position: absolute;
   align-self: center;
 }
+
 .back-root-class-name {
   top: 1px;
   left: -27px;
   position: absolute;
 }
+
 .back-root-class-name1 {
   top: 5px;
   left: -23px;
   position: absolute;
 }
+
 .back-root-class-name2 {
   top: 2px;
   left: -48px;
   position: absolute;
 }
+
 .back-root-class-name3 {
   top: 2px;
   left: -24px;
@@ -57,9 +63,11 @@
   flex-direction: column;
   justify-content: center;
 }
+
 .blog-post-card2-blog-post-card:hover {
   transform: scale(1.02);
 }
+
 .blog-post-card2-container {
   width: 1320px;
   height: 397px;
@@ -77,9 +85,11 @@
   background-image: url("public/1920px_kopalnia-soli-wieliczka-kopalnia-wiedzy-potancowka-3-700-465-13-07-2022-1500w.jpeg");
   background-position: center;
 }
+
 .blog-post-card2-link {
   display: contents;
 }
+
 .blog-post-card2-text {
   color: #ffffff;
   font-size: 100px;
@@ -91,6 +101,7 @@
   text-transform: uppercase;
   text-decoration: none;
 }
+
 .blog-post-card2-container1 {
   flex: 0 0 auto;
   width: 100%;
@@ -100,6 +111,7 @@
   justify-content: center;
   background-color: rgba(250, 227, 255, 0.46);
 }
+
 .blog-post-card2-text1 {
   font-size: 50px;
   font-family: "Carter One";
@@ -108,6 +120,7 @@
 .blog-post-card2-root-class-name1 {
   align-self: center;
 }
+
 .blog-post-card2-root-class-name2 {
   align-self: center;
 }
@@ -118,10 +131,12 @@
     justify-content: space-between;
   }
 }
+
 @media(max-width: 767px) {
   .blog-post-card2-blog-post-card {
     flex-direction: column;
   }
+
   .blog-post-card2-container {
     width: 100%;
   }
@@ -131,12 +146,14 @@
   display: flex;
   position: relative;
 }
+
 .ustawienia-thq-dropdown {
   cursor: pointer;
   display: inline-block;
   position: relative;
   border-radius: var(--dl-radius-radius-radius2);
 }
+
 .ustawienia-dropdown-toggle {
   fill: #595959;
   color: #595959;
@@ -149,6 +166,7 @@
   padding-right: var(--dl-space-space-unit);
   padding-bottom: var(--dl-space-space-halfunit);
 }
+
 .ustawienia-container1 {
   flex: 0 0 auto;
   width: auto;
@@ -156,14 +174,17 @@
   display: flex;
   flex-direction: column;
 }
+
 .ustawienia-icon {
   fill: var(--dl-color-primary-p1);
   width: var(--dl-size-size-medium);
   height: auto;
 }
+
 .ustawienia-dropdown-arrow {
   transition: 0.3s;
 }
+
 .ustawienia-dropdown-list {
   left: 0%;
   width: max-content;
@@ -181,12 +202,14 @@
   background-color: var(--dl-color-primary-f1);
   list-style-position: inside;
 }
+
 .ustawienia-dropdown {
   cursor: pointer;
   display: inline-block;
   position: relative;
   border-radius: var(--dl-radius-radius-radius2);
 }
+
 .ustawienia-dropdown-toggle1 {
   fill: #595959;
   color: #595959;
@@ -201,11 +224,13 @@
   padding-bottom: var(--dl-space-space-halfunit);
   text-decoration: none;
 }
+
 .ustawienia-dropdown-toggle1:hover {
   fill: #fff;
   color: #fff;
   background-color: #595959;
 }
+
 .ustawienia-text {
   color: #ffffff;
   width: 100%;
@@ -215,21 +240,25 @@
   font-style: normal;
   font-weight: 500;
 }
+
 .ustawienia-root-class-name {
   top: 20px;
   right: 30px;
   position: absolute;
 }
+
 .ustawienia-root-class-name1 {
   top: 15px;
   right: 35px;
   position: absolute;
 }
+
 .ustawienia-root-class-name2 {
   top: 24px;
   right: 39px;
   position: absolute;
 }
+
 .ustawienia-root-class-name3 {
   align-self: flex-end;
 }
@@ -247,6 +276,7 @@
   justify-content: flex-end;
   background-image: linear-gradient(to right, #fc00ff 0%, #00dbde 100%);
 }
+
 .wydarzenia-blog {
   top: 0px;
   left: 0px;
@@ -273,6 +303,7 @@
   animation-iteration-count: 1;
   animation-timing-function: linear;
 }
+
 @media(max-width: 767px) {
   .wydarzenia-blog {
     padding-left: var(--dl-space-space-twounits);

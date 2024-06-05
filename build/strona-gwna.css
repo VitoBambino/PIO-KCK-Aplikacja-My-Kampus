@@ -2,12 +2,14 @@
   display: flex;
   position: relative;
 }
+
 .ustawienia-thq-dropdown {
   cursor: pointer;
   display: inline-block;
   position: relative;
   border-radius: var(--dl-radius-radius-radius2);
 }
+
 .ustawienia-dropdown-toggle {
   fill: #595959;
   color: #595959;
@@ -20,6 +22,7 @@
   padding-right: var(--dl-space-space-unit);
   padding-bottom: var(--dl-space-space-halfunit);
 }
+
 .ustawienia-container1 {
   flex: 0 0 auto;
   width: auto;
@@ -27,14 +30,17 @@
   display: flex;
   flex-direction: column;
 }
+
 .ustawienia-icon {
   fill: var(--dl-color-primary-p1);
   width: var(--dl-size-size-medium);
   height: auto;
 }
+
 .ustawienia-dropdown-arrow {
   transition: 0.3s;
 }
+
 .ustawienia-dropdown-list {
   left: 0%;
   width: max-content;
@@ -52,12 +58,14 @@
   background-color: var(--dl-color-primary-f1);
   list-style-position: inside;
 }
+
 .ustawienia-dropdown {
   cursor: pointer;
   display: inline-block;
   position: relative;
   border-radius: var(--dl-radius-radius-radius2);
 }
+
 .ustawienia-dropdown-toggle1 {
   fill: #595959;
   color: #595959;
@@ -72,11 +80,13 @@
   padding-bottom: var(--dl-space-space-halfunit);
   text-decoration: none;
 }
+
 .ustawienia-dropdown-toggle1:hover {
   fill: #fff;
   color: #fff;
   background-color: #595959;
 }
+
 .ustawienia-text {
   color: #ffffff;
   width: 100%;
@@ -86,21 +96,25 @@
   font-style: normal;
   font-weight: 500;
 }
+
 .ustawienia-root-class-name {
   top: 20px;
   right: 30px;
   position: absolute;
 }
+
 .ustawienia-root-class-name1 {
   top: 15px;
   right: 35px;
   position: absolute;
 }
+
 .ustawienia-root-class-name2 {
   top: 24px;
   right: 39px;
   position: absolute;
 }
+
 .ustawienia-root-class-name3 {
   align-self: flex-end;
 }
@@ -113,6 +127,7 @@
   display: flex;
   position: relative;
 }
+
 .znajomi1-button {
   color: rgba(225, 240, 243, 0.52);
   width: 359px;
@@ -133,12 +148,14 @@
   margin-bottom: var(--dl-space-space-twounits);
   background-color: #c59eff;
 }
+
 .znajomi1-button:hover {
   color: rgba(242, 1, 255, 0.52);
   width: 400px;
   animation-name: pulse;
   background-color: #f5daff;
 }
+
 .znajomi1-root-class-name {
   align-self: center;
 }
@@ -150,6 +167,7 @@
   display: flex;
   position: relative;
 }
+
 .plan-zajec-button {
   color: rgba(225, 240, 243, 0.52);
   width: 359px;
@@ -171,6 +189,7 @@
   padding-right: 32px;
   background-color: #c59eff;
 }
+
 .plan-zajec-button:hover {
   color: rgba(242, 1, 255, 0.52);
   width: 400px;
@@ -186,6 +205,7 @@
   display: flex;
   position: relative;
 }
+
 .mapa-button {
   color: rgba(225, 240, 243, 0.52);
   width: 359px;
@@ -207,6 +227,7 @@
   padding-right: 32px;
   background-color: #c59eff;
 }
+
 .mapa-button:hover {
   color: rgba(242, 1, 255, 0.52);
   width: 400px;
@@ -222,6 +243,7 @@
   display: flex;
   position: relative;
 }
+
 .wydarzenia1-button {
   color: rgba(225, 240, 243, 0.52);
   width: 359px;
@@ -243,6 +265,7 @@
   padding-right: 32px;
   background-color: #c59eff;
 }
+
 .wydarzenia1-button:hover {
   color: rgba(242, 1, 255, 0.52);
   width: 400px;
@@ -261,11 +284,13 @@
   justify-content: center;
   background-image: linear-gradient(to right, #fc00ff 0%, #00dbde 100%);
 }
+
 .strona-gwna-image {
   width: 200px;
   align-self: center;
   object-fit: cover;
 }
+
 .strona-gwna-container1 {
   height: 631px;
   display: flex;
@@ -274,6 +299,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .strona-gwna-container2 {
   flex: 0 0 auto;
   width: auto;
@@ -283,6 +309,7 @@
   align-items: center;
   flex-direction: column;
 }
+
 .strona-gwna-container3 {
   width: 1231px;
   height: 491px;
@@ -293,6 +320,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .strona-gwna-container4 {
   flex: 0 0 auto;
   width: auto;
@@ -307,18 +335,23 @@
   padding-right: var(--dl-space-space-twounits);
   flex-direction: column;
 }
+
 .strona-gwna-navlink {
   display: contents;
 }
+
 .strona-gwna-component1 {
   text-decoration: none;
 }
+
 .strona-gwna-navlink1 {
   display: contents;
 }
+
 .strona-gwna-component2 {
   text-decoration: none;
 }
+
 .strona-gwna-container5 {
   flex: 0 0 auto;
   width: 473px;
@@ -331,15 +364,19 @@
   padding-right: var(--dl-space-space-twounits);
   flex-direction: column;
 }
+
 .strona-gwna-navlink2 {
   display: contents;
 }
+
 .strona-gwna-component3 {
   text-decoration: none;
 }
+
 .strona-gwna-navlink3 {
   display: contents;
 }
+
 .strona-gwna-component4 {
   text-decoration: none;
 }
