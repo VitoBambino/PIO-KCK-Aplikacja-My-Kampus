@@ -10,9 +10,11 @@
   flex-direction: column;
   justify-content: center;
 }
+
 .blog-post-card2-blog-post-card:hover {
   transform: scale(1.02);
 }
+
 .blog-post-card2-container {
   width: 1320px;
   height: 397px;
@@ -30,9 +32,11 @@
   background-image: url("public/1920px_kopalnia-soli-wieliczka-kopalnia-wiedzy-potancowka-3-700-465-13-07-2022-1500w.jpeg");
   background-position: center;
 }
+
 .blog-post-card2-link {
   display: contents;
 }
+
 .blog-post-card2-text {
   color: #ffffff;
   font-size: 100px;
@@ -44,6 +48,7 @@
   text-transform: uppercase;
   text-decoration: none;
 }
+
 .blog-post-card2-container1 {
   flex: 0 0 auto;
   width: 100%;
@@ -53,6 +58,7 @@
   justify-content: center;
   background-color: rgba(250, 227, 255, 0.46);
 }
+
 .blog-post-card2-text1 {
   font-size: 50px;
   font-family: "Carter One";
@@ -61,6 +67,7 @@
 .blog-post-card2-root-class-name1 {
   align-self: center;
 }
+
 .blog-post-card2-root-class-name2 {
   align-self: center;
 }
@@ -71,10 +78,12 @@
     justify-content: space-between;
   }
 }
+
 @media(max-width: 767px) {
   .blog-post-card2-blog-post-card {
     flex-direction: column;
   }
+
   .blog-post-card2-container {
     width: 100%;
   }

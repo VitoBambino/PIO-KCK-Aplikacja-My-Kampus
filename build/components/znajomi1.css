@@ -5,6 +5,7 @@
   display: flex;
   position: relative;
 }
+
 .znajomi1-button {
   color: rgba(225, 240, 243, 0.52);
   width: 359px;
@@ -25,12 +26,14 @@
   margin-bottom: var(--dl-space-space-twounits);
   background-color: #c59eff;
 }
+
 .znajomi1-button:hover {
   color: rgba(242, 1, 255, 0.52);
   width: 400px;
   animation-name: pulse;
   background-color: #f5daff;
 }
+
 .znajomi1-root-class-name {
   align-self: center;
 }

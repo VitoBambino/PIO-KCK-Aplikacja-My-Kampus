@@ -5,6 +5,7 @@
   display: flex;
   position: relative;
 }
+
 .wydarzenia1-button {
   color: rgba(225, 240, 243, 0.52);
   width: 400px;
@@ -26,10 +27,10 @@
   padding-right: 32px;
   background-color: #c59eff;
 }
+
 .wydarzenia1-button:hover {
   color: rgba(242, 1, 255, 0.52);
   width: 450px;
   animation-name: pulse;
   background-color: #f5daff;
 }
-
