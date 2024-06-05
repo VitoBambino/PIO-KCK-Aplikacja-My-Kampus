@@ -126,8 +126,8 @@
         </div>
         <ul data-thq="thq-dropdown-list" class="ustawienia-dropdown-list">
           <li data-thq="thq-dropdown" class="ustawienia-dropdown list-item">
-            <button onclick="logout()" class="ustawienia-dropdown-toggle1">
-              <span class="ustawienia-text"><span>Logout</span></span>
+            <button onclick="wyloguj()" class="ustawienia-dropdown-toggle1">
+              <span class="ustawienia-text"><span>Wyloguj</span></span>
             </button>
           </li>
         </ul>
@@ -260,8 +260,8 @@
   const analytics = getAnalytics(app);
   const auth = getAuth(app);
 
-  // Logout function
-  window.logout = function() {
+  // Wyloguj function
+  window.wyloguj = function() {
     signOut(auth).then(() => {
       console.log('User signed out');
       window.location.href = "index.html"; // Redirect to the login page
