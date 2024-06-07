@@ -1,10 +1,18 @@
 {
   /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
   "rules": {
+    ".read": "auth != null",  // Allow read access only to authenticated users
+    ".write": "auth != null", // Allow write access only to authenticated users
     "users": {
-      "$userId": {
-        ".read": "$userId === auth.uid",
-        ".write": "$userId === auth.uid"
+      "$user_id": {
+        ".read": "$user_id === auth.uid", // Each user can read their own data
+        ".write": "$user_id === auth.uid", // Each user can write their own data
+        "friends": {
+          "$friend_id": {
+            ".read": "data.child('friends/' + $friend_id).exists() && $user_id === auth.uid", // Users can read their own friends' list
+            ".write": "data.child('friends/' + $friend_id).exists() && $user_id === auth.uid" // Users can write their own friends' list
+          }
+        }
       }
     }
   }
