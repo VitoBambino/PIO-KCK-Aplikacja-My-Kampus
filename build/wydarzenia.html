@@ -165,9 +165,30 @@
       measurementId: "G-1YQZ3T5ER0"
     };
 
+    firebase.initializeApp(firebaseConfig);
+
+
+
+    // Get a reference to the database service
+    const database = firebase.database();
+
+    // Function to add an event to the database
+    function addEvent(eventId, title, description, link) {
+    firebase.database().ref('wydarzenia/' + eventId).set({
+      title: title,
+      description: description,
+      link: link
+    });
+    }
+
+    // Add events
+    addEvent('event1', 'Event 1 Title', 'Description for event 1', 'https://example.com/event1');
+    addEvent('event2', 'Event 2 Title', 'Description for event 2', 'https://example.com/event2');
+    addEvent('event3', 'Event 3 Title', 'Description for event 3', 'https://example.com/event3');
+
       // Initialize Firebase
       const app = firebase.initializeApp(firebaseConfig);
-      const database = firebase.database();
+
 
       // Fetch data from Realtime Database and populate the blog posts
       function loadWydarzenia() {
