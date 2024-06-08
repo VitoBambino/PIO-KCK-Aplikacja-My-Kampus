@@ -140,82 +140,34 @@
       measurementId: "G-1YQZ3T5ER0"
     };
 
-      // Initialize Firebase
-      const app = firebase.initializeApp(firebaseConfig);
-      const database = firebase.database();
+    firebase.initializeApp(firebaseConfig);
 
-      function addEvent() {
-        const link = document.getElementById('event-link').value;
-        const name = document.getElementById('event-name').value;
-        const description = document.getElementById('event-description').value;
+function addEvent() {
+    const link = document.getElementById('event-link').value;
+    const name = document.getElementById('event-name').value;
+    const description = document.getElementById('event-description').value;
 
-        if (link && name && description) {
-          const eventRef = database.ref('events').push();
-          eventRef.set({
+    if (link && name && description) {
+        // Get a reference to the database service
+        var database = firebase.database();
+
+        // Push the event data to the database
+        database.ref('events').push({
             link: link,
             name: name,
             description: description
-          });
+        });
 
-          const container = document.getElementById('events-container');
+        // Clear input fields after adding event
+        document.getElementById('event-link').value = '';
+        document.getElementById('event-name').value = '';
+        document.getElementById('event-description').value = '';
+    } else {
+        alert('Please fill in all fields');
+    }
+}
 
-          // Create new event card
-          const newEventCard = document.createElement('div');
-          newEventCard.className = 'blog-post-card2-blog-post-card blog-post-card2-root-class-name1';
-
-          // Create container div
-          const containerDiv = document.createElement('div');
-          containerDiv.className = 'blog-post-card2-container';
-
-          // Create link element
-          const eventLink = document.createElement('a');
-          eventLink.href = link;
-          eventLink.target = '_blank';
-          eventLink.rel = 'noreferrer noopener';
-          eventLink.className = 'blog-post-card2-link';
-
-          // Create label element for event name
-          const label = document.createElement('label');
-          label.className = 'blog-post-card2-text';
-          label.innerHTML = `<span>${name}</span>`;
-
-          // Append label to link
-          eventLink.appendChild(label);
-
-          // Append link to container div
-          containerDiv.appendChild(eventLink);
-
-          // Create second container div
-          const containerDiv1 = document.createElement('div');
-          containerDiv1.className = 'blog-post-card2-container1';
-
-          // Create text span for event description
-          const textSpan = document.createElement('span');
-          textSpan.className = 'blog-post-card2-text1';
-          textSpan.textContent = description;
-
-          // Append text span to second container div
-          containerDiv1.appendChild(textSpan);
-
-          // Append second container div to main container div
-          containerDiv.appendChild(containerDiv1);
-
-          // Append container div to new event card
-          newEventCard.appendChild(containerDiv);
-
-          // Append new event card to events container
-          container.appendChild(newEventCard);
-
-          // Clear input fields
-          document.getElementById('event-link').value = '';
-          document.getElementById('event-name').value = '';
-          document.getElementById('event-description').value = '';
-        } else {
-          alert('Please fill in all fields');
-        }
-      }
-
-      document.getElementById('add-event-button').addEventListener('click', addEvent);
-    </script>
-  </body>
+document.getElementById('add-event-button').addEventListener('click', addEvent);
+</script>
+</body>
 </html>
