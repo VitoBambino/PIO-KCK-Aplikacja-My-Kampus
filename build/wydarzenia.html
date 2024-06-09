@@ -170,12 +170,14 @@
 <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage.js"></script>
 
 <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
     import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+    import { getStorage, ref as storageRef, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-storage.js";
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -193,6 +195,7 @@
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
     const db = getDatabase(app);
+    const storage = getStorage(app);
 
     // Reference to your database path
     const eventsRef = ref(db, 'wydarzenia');
@@ -206,17 +209,24 @@
             const event = data[id];
             const listItem = document.createElement('li');
             listItem.className = 'wydarzenia list-item';
-            listItem.innerHTML = `
-          <div class="blog-post-card2-container">
-            <a href="${event.link}" target="_blank" rel="noreferrer noopener" class="blog-post-card2-link">
-              <label class="blog-post-card2-text"><span>${event.title}</span></label>
-            </a>
-            <div class="blog-post-card2-container1">
-              <span class="blog-post-card2-text1">${event.description}</span>
-            </div>
-          </div>
-        `;
-            eventsList.appendChild(listItem);
+
+            // Fetch image URL from Firebase Storage
+            const imgRef = storageRef(storage, event.imagePath);
+            getDownloadURL(imgRef).then((url) => {
+                listItem.innerHTML = `
+                  <div class="blog-post-card2-container" style="background-image: url('${url}');">
+                    <a href="${event.link}" target="_blank" rel="noreferrer noopener" class="blog-post-card2-link">
+                      <label class="blog-post-card2-text"><span>${event.title}</span></label>
+                    </a>
+                    <div class="blog-post-card2-container1">
+                      <span class="blog-post-card2-text1">${event.description}</span>
+                    </div>
+                  </div>
+                `;
+                eventsList.appendChild(listItem);
+            }).catch((error) => {
+                console.error('Error fetching image URL:', error);
+            });
         }
     }, {
         onlyOnce: true
