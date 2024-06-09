@@ -250,13 +250,14 @@
 
 /* Hide the scrollbar but allow scrolling */
 .wydarzenia-container1 {
-  max-height: 800px;
+  height: 100%;
   overflow-y: auto;
   background-color: var(--dl-color-gray-light);
-  padding: 20px;
+  padding: 0px;
   box-sizing: border-box;
   scrollbar-width: none; /* For Firefox */
   -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+  align-self: center;
 }
 
 .wydarzenia-container1::-webkit-scrollbar {
